@@ -1,45 +1,59 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booksky</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booksky</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="navbar">
-    <h1>Booksky</h1>
-</div>
+  <header class="navbar">
+    <div>
+      <h1>Booksky</h1>
+      <p>Manage your favorite books and keep your reading list organized.</p>
+    </div>
+    <button class="add-button" id="add-popup-button" type="button" aria-label="Add new book">+</button>
+  </header>
 
-<div class="container">
+  <main class="container">
+    <section class="books-section">
+      <div class="books-header">
+        <h2>My Library</h2>
+        <p>Add books, review descriptions, and remove titles once you're finished reading.</p>
+      </div>
+      <div class="book-list" id="book-list"></div>
+    </section>
+  </main>
 
-    <div class="book-container">
-        <h2>Rich Dad Poor Dad</h2>
-        <h5>Robert</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error rem omnis placeat corporis? Nemo hic delectus minima earum dolorem libero commodi animi sint, consequuntur ab odio labore nobis ullam similique.</p>
-        <button onclick="deletebook(event)">Delete</button>
-
-
-
-</div>
-
-<div class="popup-overlay"></div>
-<div class="popup-box">
-    <h2>Add Book</h2>
-    <form>
-        <input type="text" placeholder="Book Title" id="book-title-input">
-        <input type="text" placeholder="Book Author" id="book-author-input">
-        <textarea placeholder="Short Description" id="book-description-input"></textarea>
-        <button id="add-book">ADD</button>
-        <button id="cancel-popup">CANCEL</button>
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <aside class="popup-box" id="popup-box" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div class="popup-header">
+      <h2 id="popup-title">Add a Book</h2>
+      <button class="close-popup" id="close-popup" type="button" aria-label="Close form">×</button>
+    </div>
+    <form id="book-form">
+      <label>
+        Book Title
+        <input type="text" id="book-title-input" placeholder="Enter book title" required>
+      </label>
+      <label>
+        Book Author
+        <input type="text" id="book-author-input" placeholder="Enter author name" required>
+      </label>
+      <label>
+        Short Description
+        <textarea id="book-description-input" placeholder="Enter a short description"></textarea>
+      </label>
+      <div class="form-actions">
+        <button class="primary-button" type="submit">Add Book</button>
+        <button class="secondary-button" id="cancel-popup" type="button">Cancel</button>
+      </div>
     </form>
-</div>
+  </aside>
 
-
-<button class="add-button" id="add-popup-button">+</button>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
